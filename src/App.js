@@ -1,24 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+import FormikContainer from "./components/FormikContainer";
+import LoginForm from "./pages/auth/LoginForm";
+import RegistrationForm from "./pages/auth/RegistrationForm";
+import CourseEnrolmentForm from "./pages/auth/CourseEnrolmentForm";
+import { extendTheme, ChakraProvider } from "@chakra-ui/react";
+import { ThemeProvider } from "@emotion/react";
 
 function App() {
+  const colors = {
+    brand: {
+      900: "#1a365d",
+      800: "#153e75",
+      700: "#2a69ac",
+    },
+  };
+  const theme = extendTheme({ colors });
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ChakraProvider theme={theme}>
+      <div className='App'>
+        <FormikContainer />
+        {/* <LoginForm /> */}
+        {/* <RegistrationForm /> */}
+        {/* <CourseEnrolmentForm /> */}
+      </div>
+    </ChakraProvider>
   );
 }
 
